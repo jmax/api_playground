@@ -25,6 +25,39 @@ This will:
 1. Create a migration for the API keys table
 2. Set up the initial configuration file
 
+## Setting Up Routes
+
+Add the API Playground routes to your application's `config/routes.rb`:
+
+```ruby
+Rails.application.routes.draw do
+  # Basic setup with default options
+  api_playground_routes
+
+  # Or customize with options
+  api_playground_routes do |options|
+    options.namespace = :api        # Default namespace for all routes
+    options.source = :playground    # Controller name/path
+    options.path = 'explorer'       # Custom base path (default: 'playground')
+  end
+
+  # You can also mount multiple instances with different configurations
+  api_playground_routes path: 'v1/playground', namespace: :v1
+  api_playground_routes path: 'v2/playground', namespace: :v2
+end
+```
+
+This will create the following route structure (with default options):
+```
+                                Routes for API Playground
+      Path                      Verb    Controller#Action
+      /api/playground/:model    GET     api/playground#index
+      /api/playground/:model    POST    api/playground#create
+      /api/playground/:model/:id GET    api/playground#show
+      /api/playground/:model/:id PATCH  api/playground#update
+      /api/playground/:model/:id DELETE api/playground#destroy
+```
+
 ## Configuration
 
 Create an initializer at `config/initializers/api_playground.rb`:

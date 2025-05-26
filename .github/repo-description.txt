@@ -1,0 +1,1 @@
+🎮 Rails engine for creating secure API playgrounds with API key authentication. Build interactive API explorers for your Rails models with configurable endpoints, filtering, and pagination. Perfect for developer portals and API documentation. 
