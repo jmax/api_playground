@@ -1009,47 +1009,8 @@
           null,
           null
         ]
-      },
-      "/Users/martinezei/Whizzarz/api_playground/lib/api_playground/version.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/martinezei/Whizzarz/api_playground/lib/generators/api_playground/install/install_generator.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1748360101
+    "timestamp": 1748366817
   }
 }

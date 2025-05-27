@@ -2,6 +2,8 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/spec/'
   add_filter '/config/'
+  add_filter 'lib/api_playground/version.rb'
+  add_filter 'lib/generators/api_playground/install/install_generator.rb'
   
   add_group 'Models', 'app/models'
   add_group 'Controllers', 'app/controllers'
