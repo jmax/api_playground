@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 module ApiPlayground
+  # Internal module for API key validation logic.
+  # This module is used by ApiKeyProtection concern and should not be included directly.
   module ApiProtection
     extend ActiveSupport::Concern
-
-    included do
-      before_action :authenticate_api_key!
-    end
 
     private
 
@@ -19,7 +19,14 @@ module ApiPlayground
 
       model = ApiPlayground.configuration.api_key_model.constantize
       field = ApiPlayground.configuration.api_key_field
-      model.exists?(field => api_key)
+      
+      # Find the key and update last_used_at if valid
+      key_record = model.find_by(field => api_key)
+      if key_record&.touch_last_used
+        true
+      else
+        false
+      end
     end
 
     def api_key

@@ -11,6 +11,7 @@ module ApiPlayground
   #   end
   module ApiKeyProtection
     extend ActiveSupport::Concern
+    include ApiPlayground::ApiProtection
 
     included do
       class_attribute :api_protection_enabled, default: false
@@ -32,31 +33,11 @@ module ApiPlayground
     protected
 
     def validate_api_key
-      token = request.headers['X-API-Key']
-      
-      if token.blank?
-        render_api_error
-        return false
-      end
-
-      api_key = ApiPlayground::ApiKey.find_by(token: token)
-
-      if api_key.nil? || api_key.expired?
-        render_api_error
-        return false
-      end
-
-      api_key.touch_last_used
-      true
+      return true unless api_protection_enabled?
+      authenticate_api_key!
     end
 
     private
-
-    def render_api_error
-      render json: {
-        error: 'Invalid or missing API key'
-      }, status: :unauthorized, content_type: 'application/json'
-    end
 
     def api_protection_enabled?
       self.class.api_protection_enabled == true

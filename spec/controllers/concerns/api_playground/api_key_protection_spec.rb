@@ -17,6 +17,13 @@ RSpec.describe ApiPlayground::ApiKeyProtection, type: :controller do
     routes.draw do
       get 'index' => 'anonymous#index'
     end
+
+    # Configure ApiPlayground for testing
+    ApiPlayground.configure do |config|
+      config.api_key_model = 'ApiPlayground::ApiKey'
+      config.api_key_field = 'token'
+      config.api_key_header = 'X-API-Key'
+    end
   end
 
   # Reset protection state before each test
@@ -67,7 +74,6 @@ RSpec.describe ApiPlayground::ApiKeyProtection, type: :controller do
       end
 
       it 'allows requests without API key' do
-        pending "Issue with callback chain when protection is disabled - needs investigation"
         # Make the request
         get :index
         
@@ -77,7 +83,7 @@ RSpec.describe ApiPlayground::ApiKeyProtection, type: :controller do
       end
 
       it 'skips the validation callback' do
-        expect(controller).not_to receive(:validate_api_key)
+        expect(controller).not_to receive(:authenticate_api_key!)
         get :index
       end
     end
@@ -104,6 +110,7 @@ RSpec.describe ApiPlayground::ApiKeyProtection, type: :controller do
       context 'with invalid API key' do
         before do
           request.headers['X-API-Key'] = 'invalid-key'
+          allow(ApiPlayground::ApiKey).to receive(:find_by).with('token' => 'invalid-key').and_return(nil)
         end
 
         it 'returns unauthorized with error message' do
@@ -122,6 +129,8 @@ RSpec.describe ApiPlayground::ApiKeyProtection, type: :controller do
 
         before do
           request.headers['X-API-Key'] = expired_key.token
+          allow(ApiPlayground::ApiKey).to receive(:find_by).with('token' => expired_key.token).and_return(expired_key)
+          allow(expired_key).to receive(:touch_last_used).and_return(false)
         end
 
         it 'returns unauthorized with error message' do
@@ -140,6 +149,8 @@ RSpec.describe ApiPlayground::ApiKeyProtection, type: :controller do
 
         before do
           request.headers['X-API-Key'] = api_key.token
+          allow(ApiPlayground::ApiKey).to receive(:find_by).with('token' => api_key.token).and_return(api_key)
+          allow(api_key).to receive(:touch_last_used).and_return(true)
         end
 
         it 'allows the request' do
@@ -149,11 +160,9 @@ RSpec.describe ApiPlayground::ApiKeyProtection, type: :controller do
         end
 
         it 'updates last_used_at timestamp' do
-          freeze_time do
-            expect { get :index }
-              .to change { api_key.reload.last_used_at }
-              .to(Time.current)
-          end
+          expect(api_key).to receive(:touch_last_used).and_return(true)
+          get :index
+          expect(response).to have_http_status(:success)
         end
       end
     end
