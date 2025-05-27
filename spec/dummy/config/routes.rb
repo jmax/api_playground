@@ -8,5 +8,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  api_playground_routes
+  # API Playground routes
+  namespace :api do
+    scope :playground do
+      get ':model_name', to: 'playground#discover'
+      get ':model_name/:id', to: 'playground#discover'
+      post ':model_name', to: 'playground#create'
+      patch ':model_name/:id', to: 'playground#update'
+      delete ':model_name/:id', to: 'playground#destroy'
+    end
+  end
 end

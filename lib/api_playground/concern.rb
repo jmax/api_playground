@@ -90,7 +90,13 @@ module ApiPlayground
   
     included do
       class_attribute :playground_configurations, default: {}
-      skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+      
+      # Only skip authenticity token verification if the callback exists
+      # (it doesn't exist in API-only controllers)
+      if respond_to?(:skip_before_action) && 
+         _process_action_callbacks.any? { |callback| callback.filter == :verify_authenticity_token }
+        skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+      end
     end
   
     class_methods do

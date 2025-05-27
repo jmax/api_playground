@@ -31,6 +31,51 @@ ActiveRecord::Migrator.migrations_paths = [File.expand_path('../dummy/db/migrate
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  # Enable flags like --only-failures and --next-failure
+  config.example_status_persistence_file_path = ".rspec_status"
+
+  # Disable RSpec exposing methods globally on `Module` and `main`
+  config.disable_monkey_patching!
+
+  # Use the specified formatter
+  config.default_formatter = "doc"
+
+  # Run specs in random order to surface order dependencies
+  config.order = :random
+
+  # rspec-expectations config
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    expectations.syntax = :expect
+  end
+
+  # rspec-mocks config
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+    mocks.verify_doubled_constant_names = true
+  end
+
+  # This setting enables warnings. It's recommended, but in some cases may
+  # be too noisy due to issues in dependencies.
+  config.warnings = true
+
+  # Many RSpec users commonly either run the entire suite or an individual
+  # file, and it's useful to allow more verbose output when running an
+  # individual spec file.
+  if config.files_to_run.one?
+    config.default_formatter = "doc"
+  end
+
+  # Print the 10 slowest examples and example groups at the
+  # end of the spec run
+  config.profile_examples = 10
+
+  # Seed global randomization in this process using the `--seed` CLI option.
+  # Setting this allows you to use `--seed` to deterministically reproduce
+  # test failures related to randomization by passing the same `--seed` value
+  # as the one that triggered the failure.
+  Kernel.srand config.seed
+
   # Use the new expect syntax
   config.expect_with :rspec do |expectations|
     expectations.syntax = :expect
@@ -65,18 +110,6 @@ RSpec.configure do |config|
 
   # Include Rails route helpers
   config.include Rails.application.routes.url_helpers
-
-  # Disable monkey patching
-  config.disable_monkey_patching!
-
-  # Use random order for tests
-  config.order = :random
-
-  # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
-
-  # Show the slowest examples
-  config.profile_examples = 10
 
   # Use color in STDOUT
   config.color = true
