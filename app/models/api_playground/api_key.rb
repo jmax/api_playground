@@ -1,12 +1,13 @@
 module ApiPlayground
   class ApiKey < ActiveRecord::Base
-    validates :token, presence: true, uniqueness: true
-    validates :expires_at, presence: true
+    validates :token, presence: true, uniqueness: { case_sensitive: true }, on: :update
+    validates :token, uniqueness: { case_sensitive: true }, on: :create
+    validates :expires_at, presence: true, unless: -> { new_record? && expires_at.nil? && !validation_context }
 
     scope :valid, -> { where('expires_at > ?', Time.current) }
 
-    before_validation :generate_token, on: :create
-    before_validation :set_default_expiration, on: :create
+    before_create :generate_token
+    before_validation :ensure_expires_at, on: :create
 
     def self.valid_token?(token)
       valid.exists?(token: token)
@@ -23,14 +24,31 @@ module ApiPlayground
     private
 
     def generate_token
-      self.token = loop do
-        random_token = SecureRandom.base58(24)
-        break random_token unless self.class.exists?(token: random_token)
-      end
+      return if token.present?
+
+      max_attempts = 10
+      attempts = 0
+      
+      begin
+        attempts += 1
+        self.token = SecureRandom.base58(24)
+        
+        # Try to find any existing records with this token
+        if self.class.exists?(token: token)
+          if attempts >= max_attempts
+            errors.add(:token, "could not generate a unique token after #{max_attempts} attempts")
+            raise ActiveRecord::RecordInvalid.new(self)
+          end
+          next
+        end
+        
+        break # Token is unique, we can use it
+      end while attempts < max_attempts
     end
 
-    def set_default_expiration
-      self.expires_at ||= 5.days.from_now
+    def ensure_expires_at
+      return if expires_at.present?
+      self.expires_at = 5.days.from_now
     end
   end
 end 
