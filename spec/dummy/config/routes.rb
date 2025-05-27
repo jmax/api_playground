@@ -17,5 +17,14 @@ Rails.application.routes.draw do
       patch ':model_name/:id', to: 'playground#update'
       delete ':model_name/:id', to: 'playground#destroy'
     end
+    
+    # Test playground routes (for testing disabled features)
+    scope :test_playground do
+      get ':model_name', to: 'test_playground#discover'
+      get ':model_name/:id', to: 'test_playground#discover'
+      post ':model_name', to: 'test_playground#create'
+      patch ':model_name/:id', to: 'test_playground#update'
+      delete ':model_name/:id', to: 'test_playground#destroy'
+    end
   end
 end

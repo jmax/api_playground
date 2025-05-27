@@ -250,9 +250,9 @@ module ApiPlayground
     def discover
       model_name = params[:model_name].to_s.singularize
       config = self.class.playground_configurations[model_name]
-  
+
       return model_not_found unless config
-  
+
       model_class = model_name.classify.constantize
       
       if params[:id].present?
@@ -485,9 +485,11 @@ module ApiPlayground
         scope.count
       end
   
-      # Apply pagination if enabled
+      # Apply pagination if enabled, otherwise get all records
       if config.dig(:pagination, :enabled)
         scope = paginate_scope(scope, config[:pagination], total_count)
+      else
+        scope = scope.all
       end
   
       resources = scope

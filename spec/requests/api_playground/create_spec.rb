@@ -203,53 +203,18 @@ RSpec.describe "ApiPlayground Create Action", type: :request do
     end
 
     context "when create operation is not allowed" do
-      # This would test the case where create is disabled in the configuration
-      # We'll need to create a separate controller configuration for this test
-      
-      before do
-        # Temporarily modify the playground configuration to disable create
-        Api::PlaygroundController.playground_configurations = {
-          'recipe' => {
-            attributes: { ungrouped: [:title, :body] },
-            relationships: [],
-            requests: {}, # No create operation allowed
-            filters: [],
-            pagination: { enabled: true, page_size: 15, total_count: true }
-          }
-        }
-      end
-
-      after do
-        # Restore the original configuration
-        Api::PlaygroundController.playground_configurations = {
-          'recipe' => {
-            attributes: { ungrouped: [:title, :body] },
-            relationships: [],
-            requests: {
-              create: { fields: [:title, :body] },
-              update: { fields: [:title, :body] },
-              delete: true
-            },
-            filters: [],
-            pagination: { enabled: true, page_size: 15, total_count: true }
-          }
-        }
-      end
-
-      let(:valid_params) do
-        {
+      it "returns method not allowed error" do
+        valid_params = {
           data: {
             type: 'recipes',
             attributes: {
-              title: 'Test Recipe',
-              body: 'Test body'
+              title: 'Spaghetti Carbonara',
+              body: 'Classic Italian pasta dish with eggs and cheese'
             }
           }
         }
-      end
 
-      it "returns method not allowed error" do
-        post "/api/playground/recipe", params: valid_params, as: :json
+        post "/api/test_playground/recipes", params: valid_params, as: :json
 
         expect(response).to have_http_status(:method_not_allowed)
         expect(json_response).to have_key('errors')
@@ -257,7 +222,7 @@ RSpec.describe "ApiPlayground Create Action", type: :request do
         error = json_response['errors'].first
         expect(error['status']).to eq('405')
         expect(error['title']).to eq('Request not supported')
-        expect(error['detail']).to eq("The model 'recipe' does not support create operations")
+        expect(error['detail']).to eq("The model 'recipes' does not support create operations")
       end
     end
 
