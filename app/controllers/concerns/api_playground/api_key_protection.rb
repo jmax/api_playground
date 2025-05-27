@@ -14,47 +14,52 @@ module ApiPlayground
 
     included do
       class_attribute :api_protection_enabled, default: false
+      before_action :validate_api_key, if: :api_protection_enabled?
     end
 
-    class_methods do
+    module ClassMethods
       # Enables API key protection for all actions in the controller
       def protected_playground!
         self.api_protection_enabled = true
-        before_action :validate_api_key
       end
+
+      # Disables API key protection for all actions in the controller
+      def unprotected_playground!
+        self.api_protection_enabled = false
+      end
+    end
+
+    protected
+
+    def validate_api_key
+      token = request.headers['X-API-Key']
+      
+      if token.blank?
+        render_api_error
+        return false
+      end
+
+      api_key = ApiPlayground::ApiKey.find_by(token: token)
+
+      if api_key.nil? || api_key.expired?
+        render_api_error
+        return false
+      end
+
+      api_key.touch_last_used
+      true
     end
 
     private
 
-    def validate_api_key
-      return unless api_protection_enabled
-
-      token = request.headers['X-API-Key']
-      
-      if token.blank?
-        render_unauthorized('API key is missing')
-        return
-      end
-
-      api_key = ApiPlayground::ApiKey.valid.find_by(token: token)
-
-      if api_key.nil?
-        render_unauthorized('Invalid or expired API key')
-        return
-      end
-
-      # Update last used timestamp
-      api_key.touch_last_used
+    def render_api_error
+      render json: {
+        error: 'Invalid or missing API key'
+      }, status: :unauthorized, content_type: 'application/json'
     end
 
-    def render_unauthorized(message)
-      render json: {
-        errors: [{
-          status: '401',
-          title: 'Unauthorized',
-          detail: message
-        }]
-      }, status: :unauthorized
+    def api_protection_enabled?
+      self.class.api_protection_enabled == true
     end
   end
 end 

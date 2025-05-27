@@ -54,4 +54,29 @@ namespace :api_playground do
       puts "\nRemoved #{count} expired API key(s)."
     end
   end
-end 
+
+  namespace :test do
+    desc "Prepare test database"
+    task :prepare do
+      # Ensure we're in test environment
+      ENV["RAILS_ENV"] = "test"
+      
+      require File.expand_path("../../spec/dummy/config/environment.rb", __dir__)
+      
+      # Drop and create the test database
+      ActiveRecord::Tasks::DatabaseTasks.drop_current
+      ActiveRecord::Tasks::DatabaseTasks.create_current
+      
+      # Run migrations
+      ActiveRecord::Tasks::DatabaseTasks.migrate
+
+      puts "Test database prepared successfully"
+    rescue => e
+      puts "Error preparing test database: #{e.message}"
+      puts e.backtrace
+    end
+  end
+end
+
+# Hook into rspec rake task to ensure database is prepared
+task "spec" => "api_playground:test:prepare" 
