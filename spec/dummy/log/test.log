@@ -5810,3 +5810,571 @@ Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached
   [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 17:26:57.434424"], ["id", 2], ["LIMIT", 1]]
   [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE (expires_at > ?)[0m  [[nil, "2025-05-27 17:26:57.434424"]]
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM api_playground_api_keys[0m
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:00:02.176472"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.184499"], ["updated_at", "2025-05-27 18:00:02.184499"]]
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:00:02.188636"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.189024"], ["updated_at", "2025-05-27 18:00:02.189024"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:00:02.190747"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.191023"], ["updated_at", "2025-05-27 18:00:02.191023"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:00:02.193555"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.193829"], ["updated_at", "2025-05-27 18:00:02.193829"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:00:02.194153"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:00:02.194564"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:00:02.195024"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.195282"], ["updated_at", "2025-05-27 18:00:02.195282"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:00:02.195611"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.196603"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.196832"], ["updated_at", "2025-05-27 18:00:02.196832"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.199785"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.200008"], ["updated_at", "2025-05-27 18:00:02.200008"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.200353"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.200506"], ["updated_at", "2025-05-27 18:00:02.200506"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.201051"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.201286"], ["updated_at", "2025-05-27 18:00:02.201286"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.201636"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.201811"], ["updated_at", "2025-05-27 18:00:02.201811"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.202554"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.202772"], ["updated_at", "2025-05-27 18:00:02.202772"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.204601"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.204816"], ["updated_at", "2025-05-27 18:00:02.204816"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.205835"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.206053"], ["updated_at", "2025-05-27 18:00:02.206053"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.206949"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.207145"], ["updated_at", "2025-05-27 18:00:02.207145"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.207459"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.207619"], ["updated_at", "2025-05-27 18:00:02.207619"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02.208451"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.208648"], ["updated_at", "2025-05-27 18:00:02.208648"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:00:02.209469"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.209713"], ["updated_at", "2025-05-27 18:00:02.209713"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:00:02.210007"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02.210190"], ["updated_at", "2025-05-27 18:00:02.210190"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:00:02.210477"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:00:02.210627"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE (expires_at > ?)[0m  [[nil, "2025-05-27 18:00:02.210627"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:00:02"], ["last_used_at", nil], ["created_at", "2025-05-27 18:00:02"], ["updated_at", "2025-05-27 18:00:02"]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Update (0.0ms)[0m  [1m[33mUPDATE "api_playground_api_keys" SET "last_used_at" = ? WHERE "api_playground_api_keys"."id" = ?[0m  [["last_used_at", "2025-05-27 18:00:02"], ["id", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM api_playground_api_keys[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:39.887423"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:39.894529"], ["updated_at", "2025-05-27 18:01:39.894529"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:01:39.895129"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:39.895391"], ["updated_at", "2025-05-27 18:01:39.895391"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:39.895757"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:39.897024"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE (expires_at > ?)[0m  [[nil, "2025-05-27 18:01:39.897024"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:01:39.897883"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:39.898205"], ["updated_at", "2025-05-27 18:01:39.898205"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:39.898605"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:39.899433"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:39.899731"], ["updated_at", "2025-05-27 18:01:39.899731"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:39.900078"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:39.900498"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:39.900976"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:39.901207"], ["updated_at", "2025-05-27 18:01:39.901207"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:39.905999"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:39.906318"], ["updated_at", "2025-05-27 18:01:39.906318"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:39.911642"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:39.912008"], ["updated_at", "2025-05-27 18:01:39.912008"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.653117"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.653535"], ["updated_at", "2025-05-27 18:01:40.653535"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.653978"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.654142"], ["updated_at", "2025-05-27 18:01:40.654142"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.656537"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.656769"], ["updated_at", "2025-05-27 18:01:40.656769"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.658676"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.658907"], ["updated_at", "2025-05-27 18:01:40.658907"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.659290"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.659467"], ["updated_at", "2025-05-27 18:01:40.659467"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.660384"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.660603"], ["updated_at", "2025-05-27 18:01:40.660603"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.662012"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.662233"], ["updated_at", "2025-05-27 18:01:40.662233"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40.662860"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.663077"], ["updated_at", "2025-05-27 18:01:40.663077"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:40"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40"], ["updated_at", "2025-05-27 18:01:40"]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Update (0.0ms)[0m  [1m[33mUPDATE "api_playground_api_keys" SET "last_used_at" = ? WHERE "api_playground_api_keys"."id" = ?[0m  [["last_used_at", "2025-05-27 18:01:40"], ["id", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:40.671757"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.672158"], ["updated_at", "2025-05-27 18:01:40.672158"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:40.679636"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.680268"], ["updated_at", "2025-05-27 18:01:40.680268"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:01:40.682962"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:40.683349"], ["updated_at", "2025-05-27 18:01:40.683349"]]
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM api_playground_api_keys[0m
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:01:47.949155"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:47.954768"], ["updated_at", "2025-05-27 18:01:47.954768"]]
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:47.957471"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:47.957887"], ["updated_at", "2025-05-27 18:01:47.957887"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:47.959765"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:47.960067"], ["updated_at", "2025-05-27 18:01:47.960067"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:47.973550"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:47.973800"], ["updated_at", "2025-05-27 18:01:47.973800"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:47.974517"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:47.974742"], ["updated_at", "2025-05-27 18:01:47.974742"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.695327"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.695777"], ["updated_at", "2025-05-27 18:01:48.695777"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.696865"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.697126"], ["updated_at", "2025-05-27 18:01:48.697126"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.697498"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.697675"], ["updated_at", "2025-05-27 18:01:48.697675"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.698672"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.698899"], ["updated_at", "2025-05-27 18:01:48.698899"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:48.700768"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.701110"], ["updated_at", "2025-05-27 18:01:48.701110"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:48.701529"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:48.702057"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:01:48.702486"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.702769"], ["updated_at", "2025-05-27 18:01:48.702769"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:48.703151"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.703679"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.704010"], ["updated_at", "2025-05-27 18:01:48.704010"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.707364"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.707568"], ["updated_at", "2025-05-27 18:01:48.707568"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.707970"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.708148"], ["updated_at", "2025-05-27 18:01:48.708148"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.708833"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.709052"], ["updated_at", "2025-05-27 18:01:48.709052"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48.709370"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.709547"], ["updated_at", "2025-05-27 18:01:48.709547"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:01:48.710183"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.710445"], ["updated_at", "2025-05-27 18:01:48.710445"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:01:48.710769"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48.710988"], ["updated_at", "2025-05-27 18:01:48.710988"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:48.711278"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:01:48.711436"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE (expires_at > ?)[0m  [[nil, "2025-05-27 18:01:48.711436"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:01:48"], ["last_used_at", nil], ["created_at", "2025-05-27 18:01:48"], ["updated_at", "2025-05-27 18:01:48"]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Update (0.0ms)[0m  [1m[33mUPDATE "api_playground_api_keys" SET "last_used_at" = ? WHERE "api_playground_api_keys"."id" = ?[0m  [["last_used_at", "2025-05-27 18:01:48"], ["id", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM api_playground_api_keys[0m
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:03:17.644916"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.650948"], ["updated_at", "2025-05-27 18:03:17.650948"]]
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:03:17.653797"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.654307"], ["updated_at", "2025-05-27 18:03:17.654307"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:03:17.656291"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.656597"], ["updated_at", "2025-05-27 18:03:17.656597"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.659168"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.659418"], ["updated_at", "2025-05-27 18:03:17.659418"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.660450"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.660696"], ["updated_at", "2025-05-27 18:03:17.660696"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.661060"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.661237"], ["updated_at", "2025-05-27 18:03:17.661237"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.662310"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.662550"], ["updated_at", "2025-05-27 18:03:17.662550"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.663157"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.663380"], ["updated_at", "2025-05-27 18:03:17.663380"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.664838"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.665087"], ["updated_at", "2025-05-27 18:03:17.665087"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17"], ["updated_at", "2025-05-27 18:03:17"]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Update (0.0ms)[0m  [1m[33mUPDATE "api_playground_api_keys" SET "last_used_at" = ? WHERE "api_playground_api_keys"."id" = ?[0m  [["last_used_at", "2025-05-27 18:03:17"], ["id", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:03:17.668220"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.668455"], ["updated_at", "2025-05-27 18:03:17.668455"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:03:17.668743"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.668942"], ["updated_at", "2025-05-27 18:03:17.668942"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:03:17.669301"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:03:17.669483"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE (expires_at > ?)[0m  [[nil, "2025-05-27 18:03:17.669483"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.670114"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.670327"], ["updated_at", "2025-05-27 18:03:17.670327"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.670768"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.670924"], ["updated_at", "2025-05-27 18:03:17.670924"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.671633"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.671825"], ["updated_at", "2025-05-27 18:03:17.671825"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.672154"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.672313"], ["updated_at", "2025-05-27 18:03:17.672313"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-01 18:03:17.672907"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.673139"], ["updated_at", "2025-05-27 18:03:17.673139"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-28 18:03:17.677109"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.677440"], ["updated_at", "2025-05-27 18:03:17.677440"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:03:17.677948"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:03:17.678558"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-26 18:03:17.679162"], ["last_used_at", nil], ["created_at", "2025-05-27 18:03:17.679518"], ["updated_at", "2025-05-27 18:03:17.679518"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-27 18:03:17.679945"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
