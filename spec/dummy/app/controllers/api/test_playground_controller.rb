@@ -9,7 +9,7 @@ module Api
                   requests: {
                     create: false,
                     update: false,
-                    delete: true
+                    delete: false
                   }
   end
 end 

@@ -17223,3 +17223,974 @@ Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM recipes[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM api_playground_api_keys[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.290663"], ["updated_at", "2025-05-28 19:39:07.290663"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.291264"], ["updated_at", "2025-05-28 19:39:07.291264"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.291602"], ["updated_at", "2025-05-28 19:39:07.291602"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.291899"], ["updated_at", "2025-05-28 19:39:07.291899"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.292224"], ["updated_at", "2025-05-28 19:39:07.292224"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.309968"], ["updated_at", "2025-05-28 19:39:07.309968"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.310400"], ["updated_at", "2025-05-28 19:39:07.310400"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.310706"], ["updated_at", "2025-05-28 19:39:07.310706"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.311002"], ["updated_at", "2025-05-28 19:39:07.311002"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.311327"], ["updated_at", "2025-05-28 19:39:07.311327"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.313318"], ["updated_at", "2025-05-28 19:39:07.313318"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.313638"], ["updated_at", "2025-05-28 19:39:07.313638"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.313927"], ["updated_at", "2025-05-28 19:39:07.313927"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.314220"], ["updated_at", "2025-05-28 19:39:07.314220"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.314513"], ["updated_at", "2025-05-28 19:39:07.314513"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 2], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.316369"], ["updated_at", "2025-05-28 19:39:07.316369"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.316702"], ["updated_at", "2025-05-28 19:39:07.316702"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.316993"], ["updated_at", "2025-05-28 19:39:07.316993"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.317324"], ["updated_at", "2025-05-28 19:39:07.317324"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.317608"], ["updated_at", "2025-05-28 19:39:07.317608"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 2], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.319088"], ["updated_at", "2025-05-28 19:39:07.319088"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.319421"], ["updated_at", "2025-05-28 19:39:07.319421"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.319727"], ["updated_at", "2025-05-28 19:39:07.319727"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.320067"], ["updated_at", "2025-05-28 19:39:07.320067"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.320363"], ["updated_at", "2025-05-28 19:39:07.320363"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.321882"], ["updated_at", "2025-05-28 19:39:07.321882"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.322219"], ["updated_at", "2025-05-28 19:39:07.322219"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.322537"], ["updated_at", "2025-05-28 19:39:07.322537"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.322860"], ["updated_at", "2025-05-28 19:39:07.322860"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.323181"], ["updated_at", "2025-05-28 19:39:07.323181"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.324746"], ["updated_at", "2025-05-28 19:39:07.324746"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.325061"], ["updated_at", "2025-05-28 19:39:07.325061"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.325356"], ["updated_at", "2025-05-28 19:39:07.325356"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.325650"], ["updated_at", "2025-05-28 19:39:07.325650"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.325960"], ["updated_at", "2025-05-28 19:39:07.325960"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.327552"], ["updated_at", "2025-05-28 19:39:07.327552"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.327867"], ["updated_at", "2025-05-28 19:39:07.327867"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.328151"], ["updated_at", "2025-05-28 19:39:07.328151"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.328433"], ["updated_at", "2025-05-28 19:39:07.328433"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.328740"], ["updated_at", "2025-05-28 19:39:07.328740"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/test_playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::TestPlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "test_playground"=>{}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.330672"], ["updated_at", "2025-05-28 19:39:07.330672"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.330973"], ["updated_at", "2025-05-28 19:39:07.330973"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.331280"], ["updated_at", "2025-05-28 19:39:07.331280"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.331564"], ["updated_at", "2025-05-28 19:39:07.331564"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.331846"], ["updated_at", "2025-05-28 19:39:07.331846"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/test_playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::TestPlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "test_playground"=>{}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.333220"], ["updated_at", "2025-05-28 19:39:07.333220"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.333567"], ["updated_at", "2025-05-28 19:39:07.333567"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.333922"], ["updated_at", "2025-05-28 19:39:07.333922"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.334264"], ["updated_at", "2025-05-28 19:39:07.334264"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.334577"], ["updated_at", "2025-05-28 19:39:07.334577"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 4]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.338275"], ["updated_at", "2025-05-28 19:39:07.338275"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.338685"], ["updated_at", "2025-05-28 19:39:07.338685"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.339016"], ["updated_at", "2025-05-28 19:39:07.339016"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.339312"], ["updated_at", "2025-05-28 19:39:07.339312"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.339649"], ["updated_at", "2025-05-28 19:39:07.339649"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 4]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.342310"], ["updated_at", "2025-05-28 19:39:07.342310"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.342654"], ["updated_at", "2025-05-28 19:39:07.342654"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.342944"], ["updated_at", "2025-05-28 19:39:07.342944"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.343257"], ["updated_at", "2025-05-28 19:39:07.343257"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.343554"], ["updated_at", "2025-05-28 19:39:07.343554"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/invalid_model" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"invalid_model", "playground"=>{}}
+Completed 404 Not Found in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.344942"], ["updated_at", "2025-05-28 19:39:07.344942"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.345237"], ["updated_at", "2025-05-28 19:39:07.345237"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.345578"], ["updated_at", "2025-05-28 19:39:07.345578"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.345861"], ["updated_at", "2025-05-28 19:39:07.345861"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.346157"], ["updated_at", "2025-05-28 19:39:07.346157"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.347628"], ["updated_at", "2025-05-28 19:39:07.347628"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.347922"], ["updated_at", "2025-05-28 19:39:07.347922"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.348206"], ["updated_at", "2025-05-28 19:39:07.348206"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.348523"], ["updated_at", "2025-05-28 19:39:07.348523"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.348832"], ["updated_at", "2025-05-28 19:39:07.348832"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.350277"], ["updated_at", "2025-05-28 19:39:07.350277"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.350574"], ["updated_at", "2025-05-28 19:39:07.350574"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.350868"], ["updated_at", "2025-05-28 19:39:07.350868"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.351189"], ["updated_at", "2025-05-28 19:39:07.351189"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.351509"], ["updated_at", "2025-05-28 19:39:07.351509"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.353148"], ["updated_at", "2025-05-28 19:39:07.353148"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.353452"], ["updated_at", "2025-05-28 19:39:07.353452"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.353763"], ["updated_at", "2025-05-28 19:39:07.353763"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.354060"], ["updated_at", "2025-05-28 19:39:07.354060"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.354385"], ["updated_at", "2025-05-28 19:39:07.354385"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.356840"], ["updated_at", "2025-05-28 19:39:07.356840"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chicken Tikka Masala"], ["body", "Creamy Indian curry with tender chicken pieces"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.357144"], ["updated_at", "2025-05-28 19:39:07.357144"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Beef Tacos"], ["body", "Mexican-style tacos with seasoned ground beef"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.357430"], ["updated_at", "2025-05-28 19:39:07.357430"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Vegetable Stir Fry"], ["body", "Quick and healthy Asian-inspired vegetable dish"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.357741"], ["updated_at", "2025-05-28 19:39:07.357741"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Chocolate Chip Cookies"], ["body", "Sweet homemade cookies with chocolate chips"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.358045"], ["updated_at", "2025-05-28 19:39:07.358045"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started GET "/api/playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#discover as JSON
+  Parameters: {"model_name"=>"recipes", "playground"=>{}}
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ? OFFSET ?[0m  [["LIMIT", 15], ["OFFSET", 0]]
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes"}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes"}}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"model_name"=>"recipe", "playground"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"body"=>"A recipe without a title"}}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"body"=>"A recipe without a title"}}}}
+Completed 422 Unprocessable Content in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"body"=>"A recipe without a title"}}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"body"=>"A recipe without a title"}}}}
+Completed 422 Unprocessable Content in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Recipe without body"}}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Recipe without body"}}}}
+Completed 422 Unprocessable Content in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>""}}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>""}}}}
+Completed 422 Unprocessable Content in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Delicious Pasta", "body"=>"A wonderful pasta recipe with fresh ingredients"}}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Delicious Pasta", "body"=>"A wonderful pasta recipe with fresh ingredients"}}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Delicious Pasta"], ["body", "A wonderful pasta recipe with fresh ingredients"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.367941"], ["updated_at", "2025-05-28 19:39:07.367941"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 201 Created in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Delicious Pasta", "body"=>"A wonderful pasta recipe with fresh ingredients"}}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Delicious Pasta", "body"=>"A wonderful pasta recipe with fresh ingredients"}}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Delicious Pasta"], ["body", "A wonderful pasta recipe with fresh ingredients"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.369607"], ["updated_at", "2025-05-28 19:39:07.369607"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 201 Created in 0ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/test_playground/recipes" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::TestPlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Spaghetti Carbonara", "body"=>"Classic Italian pasta dish with eggs and cheese"}}, "model_name"=>"recipes", "test_playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Spaghetti Carbonara", "body"=>"Classic Italian pasta dish with eggs and cheese"}}}}
+Completed 405 Method Not Allowed in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+Started POST "/api/playground/recipe" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Valid Recipe", "body"=>"Valid body", "unauthorized_field"=>"This should be filtered out"}}, "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Valid Recipe", "body"=>"Valid body", "unauthorized_field"=>"This should be filtered out"}}}}
+[31mUnpermitted parameter: :unauthorized_field. Context: { controller: Api::PlaygroundController, action: create, request: #<ActionDispatch::Request:0x0000000142a38de0>, params: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Valid Recipe", "body"=>"Valid body", "unauthorized_field"=>"This should be filtered out"}}, "controller"=>"api/playground", "action"=>"create", "model_name"=>"recipe", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Valid Recipe", "body"=>"Valid body", "unauthorized_field"=>"This should be filtered out"}}}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Valid Recipe"], ["body", "Valid body"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.371937"], ["updated_at", "2025-05-28 19:39:07.371937"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 201 Created in 0ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+Started POST "/api/playground/invalid_model" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#create as JSON
+  Parameters: {"data"=>{"type"=>"invalid_models", "attributes"=>{"title"=>"Test", "body"=>"Test body"}}, "model_name"=>"invalid_model", "playground"=>{"data"=>{"type"=>"invalid_models", "attributes"=>{"title"=>"Test", "body"=>"Test body"}}}}
+Completed 404 Not Found in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.6ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-29 19:39:07.381182"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.392095"], ["updated_at", "2025-05-28 19:39:07.392095"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.2ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-29 19:39:07.405931"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.408782"], ["updated_at", "2025-05-28 19:39:07.408782"]]
+Processing by AnonymousController#index as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-27 19:39:07.428750"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.431006"], ["updated_at", "2025-05-28 19:39:07.431006"]]
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Processing by AnonymousController#index as HTML
+Filter chain halted as :validate_api_key rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.443980"], ["updated_at", "2025-05-28 19:39:07.443980"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/99999" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title"}}, "model_name"=>"recipes", "id"=>"99999", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title"}}}}
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 99999], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.450528"], ["updated_at", "2025-05-28 19:39:07.450528"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated Spaghetti Carbonara", "body"=>"Updated classic Italian pasta dish with eggs, cheese, and pancetta"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated Spaghetti Carbonara", "body"=>"Updated classic Italian pasta dish with eggs, cheese, and pancetta"}}}}
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Updated Spaghetti Carbonara"], ["body", "Updated classic Italian pasta dish with eggs, cheese, and pancetta"], ["updated_at", "2025-05-28 19:39:07.459475"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.460874"], ["updated_at", "2025-05-28 19:39:07.460874"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated Spaghetti Carbonara", "body"=>"Updated classic Italian pasta dish with eggs, cheese, and pancetta"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated Spaghetti Carbonara", "body"=>"Updated classic Italian pasta dish with eggs, cheese, and pancetta"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Updated Spaghetti Carbonara"], ["body", "Updated classic Italian pasta dish with eggs, cheese, and pancetta"], ["updated_at", "2025-05-28 19:39:07.461736"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.462993"], ["updated_at", "2025-05-28 19:39:07.462993"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Partially Updated Title"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Partially Updated Title"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Partially Updated Title"], ["updated_at", "2025-05-28 19:39:07.463749"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.2ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.464712"], ["updated_at", "2025-05-28 19:39:07.464712"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated Spaghetti Carbonara", "body"=>"Updated classic Italian pasta dish with eggs, cheese, and pancetta"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated Spaghetti Carbonara", "body"=>"Updated classic Italian pasta dish with eggs, cheese, and pancetta"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Updated Spaghetti Carbonara"], ["body", "Updated classic Italian pasta dish with eggs, cheese, and pancetta"], ["updated_at", "2025-05-28 19:39:07.465609"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.466492"], ["updated_at", "2025-05-28 19:39:07.466492"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Updated title"], ["body", "Updated body"], ["updated_at", "2025-05-28 19:39:07.467230"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.468349"], ["updated_at", "2025-05-28 19:39:07.468349"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.470651"], ["updated_at", "2025-05-28 19:39:07.470651"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/invalid_model/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"invalid_models", "attributes"=>{"title"=>"Updated title"}}, "model_name"=>"invalid_model", "id"=>"1", "playground"=>{"data"=>{"type"=>"invalid_models", "attributes"=>{"title"=>"Updated title"}}}}
+Completed 404 Not Found in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.472014"], ["updated_at", "2025-05-28 19:39:07.472014"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes"}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes"}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.473197"], ["updated_at", "2025-05-28 19:39:07.473197"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"attributes"=>{"title"=>"Updated title"}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"attributes"=>{"title"=>"Updated title"}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.474389"], ["updated_at", "2025-05-28 19:39:07.474389"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>"This should not be saved"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>"This should not be saved"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 422 Unprocessable Content in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.2ms)
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.476116"], ["updated_at", "2025-05-28 19:39:07.476116"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>""}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>""}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 422 Unprocessable Content in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.477484"], ["updated_at", "2025-05-28 19:39:07.477484"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>"Updated body"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>"Updated body"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 422 Unprocessable Content in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.1ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.478964"], ["updated_at", "2025-05-28 19:39:07.478964"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>""}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"", "body"=>""}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 422 Unprocessable Content in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.481661"], ["updated_at", "2025-05-28 19:39:07.481661"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Updated title"], ["body", "Updated body"], ["updated_at", "2025-05-28 19:39:07.482511"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.483492"], ["updated_at", "2025-05-28 19:39:07.483492"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body", "unauthorized_field"=>"This should be ignored"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body", "unauthorized_field"=>"This should be ignored"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :unauthorized_field. Context: { controller: Api::PlaygroundController, action: update, request: #<ActionDispatch::Request:0x0000000126fdcbc8>, params: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body", "unauthorized_field"=>"This should be ignored"}}, "controller"=>"api/playground", "action"=>"update", "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body", "unauthorized_field"=>"This should be ignored"}}}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Updated title"], ["body", "Updated body"], ["updated_at", "2025-05-28 19:39:07.484296"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.485300"], ["updated_at", "2025-05-28 19:39:07.485300"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/test_playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::TestPlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body"}}, "model_name"=>"recipes", "id"=>"1", "test_playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"Updated body"}}}}
+Completed 405 Method Not Allowed in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Original Spaghetti Carbonara"], ["body", "Original classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:39:07.486750"], ["updated_at", "2025-05-28 19:39:07.486750"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Started PATCH "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:39:07 -0300
+Processing by Api::PlaygroundController#update as JSON
+  Parameters: {"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"This should be ignored if not in allowed fields"}}, "model_name"=>"recipes", "id"=>"1", "playground"=>{"data"=>{"type"=>"recipes", "attributes"=>{"title"=>"Updated title", "body"=>"This should be ignored if not in allowed fields"}}}}
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Update (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "recipes"."id" = ?[0m  [["title", "Updated title"], ["body", "This should be ignored if not in allowed fields"], ["updated_at", "2025-05-28 19:39:07.487481"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mRecipe Load (0.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.488905"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.489196"], ["updated_at", "2025-05-28 19:39:07.489196"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.491041"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.491236"], ["updated_at", "2025-05-28 19:39:07.491236"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.491565"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.491721"], ["updated_at", "2025-05-28 19:39:07.491721"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["token", "[FILTERED]"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.492521"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.492715"], ["updated_at", "2025-05-28 19:39:07.492715"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL AND "api_playground_api_keys"."id" != ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.494097"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.494289"], ["updated_at", "2025-05-28 19:39:07.494289"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.494865"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.495059"], ["updated_at", "2025-05-28 19:39:07.495059"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.496056"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.496252"], ["updated_at", "2025-05-28 19:39:07.496252"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.496614"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.496786"], ["updated_at", "2025-05-28 19:39:07.496786"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.497322"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.497513"], ["updated_at", "2025-05-28 19:39:07.497513"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.1ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.500779"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.501018"], ["updated_at", "2025-05-28 19:39:07.501018"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07.501495"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.501660"], ["updated_at", "2025-05-28 19:39:07.501660"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-06-02 19:39:07"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07"], ["updated_at", "2025-05-28 19:39:07"]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Update (0.0ms)[0m  [1m[33mUPDATE "api_playground_api_keys" SET "last_used_at" = ? WHERE "api_playground_api_keys"."id" = ?[0m  [["last_used_at", "2025-05-28 19:39:07"], ["id", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-29 19:39:07.503778"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.504022"], ["updated_at", "2025-05-28 19:39:07.504022"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-27 19:39:07.504317"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.504650"], ["updated_at", "2025-05-28 19:39:07.504650"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-28 19:39:07.504952"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."id" = ? LIMIT ?[0m  [[nil, "2025-05-28 19:39:07.505129"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Load (0.0ms)[0m  [1m[34mSELECT "api_playground_api_keys".* FROM "api_playground_api_keys" WHERE (expires_at > ?)[0m  [[nil, "2025-05-28 19:39:07.505129"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-27 19:39:07.505728"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.505964"], ["updated_at", "2025-05-28 19:39:07.505964"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-28 19:39:07.506259"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-28 19:39:07.506634"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mApiPlayground::ApiKey Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE "api_playground_api_keys"."token" = ? LIMIT ?[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mApiPlayground::ApiKey Create (0.0ms)[0m  [1m[32mINSERT INTO "api_playground_api_keys" ("token", "expires_at", "last_used_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["token", "[FILTERED]"], ["expires_at", "2025-05-29 19:39:07.507011"], ["last_used_at", nil], ["created_at", "2025-05-28 19:39:07.507371"], ["updated_at", "2025-05-28 19:39:07.507371"]]
+  [1m[36mApiPlayground::ApiKey Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "api_playground_api_keys" WHERE (expires_at > ?) AND "api_playground_api_keys"."token" = ? LIMIT ?[0m  [[nil, "2025-05-28 19:39:07.507664"], ["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM recipes[0m
+  [1m[35m (0.0ms)[0m  [1m[31mDELETE FROM api_playground_api_keys[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Create (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "body", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Spaghetti Carbonara"], ["body", "Classic Italian pasta dish with eggs and cheese"], ["author_id", nil], ["created_at", "2025-05-28 19:42:25.844940"], ["updated_at", "2025-05-28 19:42:25.844940"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+  [1m[36mRecipe Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+Started DELETE "/api/playground/recipes/1" for 127.0.0.1 at 2025-05-28 16:42:25 -0300
+Processing by Api::PlaygroundController#destroy as JSON
+  Parameters: {"model_name"=>"recipes", "id"=>"1", "playground"=>{}}
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_2[0m
+  [1m[36mRecipe Destroy (0.1ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_2[0m
+Completed 204 No Content in 5ms (ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mRecipe Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
