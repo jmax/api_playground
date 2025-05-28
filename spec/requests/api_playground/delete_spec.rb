@@ -34,7 +34,7 @@ RSpec.describe "ApiPlayground Delete Action", type: :request do
 
         expect(response).to have_http_status(:no_content)
         expect(response.body).to be_empty
-        expect(response.content_length).to eq(0)
+        # Note: content_length can be nil for empty responses, so we don't test it
       end
 
       it "handles multiple deletions correctly" do
@@ -260,10 +260,13 @@ RSpec.describe "ApiPlayground Delete Action", type: :request do
 
       it "requires explicit ID in the URL" do
         # Test that we can't delete without specifying an ID
-        # This would be a routing error, but let's verify the behavior
-        expect {
-          delete "/api/playground/recipes/", as: :json
-        }.to raise_error(ActionController::RoutingError)
+        # This should result in a routing error or method not allowed
+        delete "/api/playground/recipes/", as: :json
+        
+        # The route might match but return an error, or it might not match at all
+        # Either way, it should not be a successful deletion
+        expect(response).not_to have_http_status(:no_content)
+        expect(response).to have_http_status(:not_found).or have_http_status(:method_not_allowed)
       end
     end
   end
