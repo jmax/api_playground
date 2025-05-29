@@ -260,6 +260,13 @@ Content-Type: application/json
 DELETE /api/playground/recipes/1
 ```
 
+**Response: 204 No Content**
+```
+(Empty response body)
+```
+
+The delete operation returns HTTP status 204 (No Content) with an empty response body when successful. This indicates that the resource was successfully deleted.
+
 ## JSON:API Compliance
 
 All responses follow the [JSON:API specification](https://jsonapi.org/):
