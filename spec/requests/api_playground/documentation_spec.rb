@@ -154,7 +154,8 @@ RSpec.describe 'ApiPlayground::Documentation', type: :request do
       # Check a sample operation
       recipe_list = spec['paths']['/api/test_playground/recipes']['get']
       expect(recipe_list['summary']).to eq('List Recipes')
-      expect(recipe_list['description']).to eq('Retrieve a paginated list of recipes')
+      expect(recipe_list['description']).to include('Retrieve a list of recipes with pagination and filtering')
+      expect(recipe_list['description']).to include('Available filters: title, body')
       expect(recipe_list['tags']).to eq(['Recipe'])
     end
 
@@ -207,6 +208,60 @@ RSpec.describe 'ApiPlayground::Documentation', type: :request do
       expect(attributes['properties']).to have_key('title')
       expect(attributes['properties']).to have_key('body')
       expect(attributes['properties']).to have_key('description')
+    end
+
+    it 'includes filter parameters in list operations' do
+      get '/api/test_playground/docs'
+      spec = JSON.parse(response.body)
+
+      # Check recipe list operation parameters
+      recipe_list = spec['paths']['/api/test_playground/recipes']['get']
+      expect(recipe_list).to have_key('parameters')
+      
+      parameters = recipe_list['parameters']
+      parameter_names = parameters.map { |p| p['name'] }
+
+      # Should include pagination parameters
+      expect(parameter_names).to include('page[number]')
+      expect(parameter_names).to include('page[size]')
+
+      # Should include filter parameters
+      expect(parameter_names).to include('filters[title]')
+      expect(parameter_names).to include('filters[body]')
+
+      # Check specific filter parameter details
+      title_filter = parameters.find { |p| p['name'] == 'filters[title]' }
+      expect(title_filter['description']).to include('exact match')
+      expect(title_filter['required']).to be false
+      expect(title_filter['schema']['type']).to eq('string')
+
+      body_filter = parameters.find { |p| p['name'] == 'filters[body]' }
+      expect(body_filter['description']).to include('partial match')
+
+      # Check pagination parameter details
+      page_number = parameters.find { |p| p['name'] == 'page[number]' }
+      expect(page_number['schema']['type']).to eq('integer')
+      expect(page_number['schema']['minimum']).to eq(1)
+      expect(page_number['schema']['default']).to eq(1)
+
+      page_size = parameters.find { |p| p['name'] == 'page[size]' }
+      expect(page_size['schema']['default']).to eq(20) # From test configuration
+      expect(page_size['schema']['maximum']).to eq(50)
+    end
+
+    it 'adapts filter parameters to field types' do
+      get '/api/test_playground/docs'
+      spec = JSON.parse(response.body)
+
+      # Check user list operation (which has different field types)
+      user_list = spec['paths']['/api/test_playground/users']['get']
+      parameters = user_list['parameters']
+
+      # Should only have pagination (no filters configured for users in test)
+      parameter_names = parameters.map { |p| p['name'] }
+      expect(parameter_names).to include('page[number]')
+      expect(parameter_names).to include('page[size]')
+      expect(parameter_names).not_to include('filters[name]') # No filters configured for users
     end
   end
 

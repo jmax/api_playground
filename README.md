@@ -420,7 +420,7 @@ The documentation module automatically generates:
 - **Request/response examples** with proper JSON:API structure
 - **Error response schemas** for different HTTP status codes
 - **Security definitions** for API key authentication (if enabled)
-- **Parameter definitions** for pagination and filtering
+- **Parameter definitions** for pagination and filtering with intelligent type detection
 
 ### Example Generated Paths
 
@@ -498,6 +498,73 @@ This configuration will generate:
 - Request schemas limited to specified fields
 - Pagination parameters in the documentation
 - Filter parameters for search operations
+
+### Filter Documentation
+
+The documentation module automatically includes filter parameters in the OpenAPI specification based on your `filters` configuration:
+
+```ruby
+playground_for :recipe,
+              filters: [
+                { field: 'title', type: :exact },
+                { field: 'body', type: :partial },
+                { field: 'author_id', type: :exact },
+                { field: 'created_at', type: :exact }
+              ]
+```
+
+This generates OpenAPI parameters like:
+
+- `filters[title]` - Filter by title using exact match
+- `filters[body]` - Filter by body using partial match (case-insensitive search)
+- `filters[author_id]` - Filter by author id using exact match (integer type)
+- `filters[created_at]` - Filter by created at using exact match (date-time format)
+
+#### Intelligent Type Detection
+
+The module automatically infers parameter types and formats based on field names:
+
+- **ID fields** (`*_id`, `id`) → `integer` type
+- **Timestamp fields** (`*_at`, `*_on`, `created_*`, `updated_*`) → `string` with `date-time` format
+- **Email fields** (`email`) → `string` with `email` format
+- **Count fields** (`*_count`, `count`, `quantity`) → `integer` type
+- **Boolean fields** (`is_*`, `has_*`, `active`, `enabled`) → `boolean` type
+- **Other fields** → `string` type
+
+#### Example Generated Documentation
+
+For a recipe with the above filters, the list endpoint documentation will include:
+
+```json
+{
+  "parameters": [
+    {
+      "name": "filters[title]",
+      "in": "query",
+      "description": "Filter by title using exact match",
+      "required": false,
+      "schema": { "type": "string" },
+      "example": "Spaghetti Carbonara"
+    },
+    {
+      "name": "filters[body]",
+      "in": "query", 
+      "description": "Filter by body using partial match (case-insensitive search)",
+      "required": false,
+      "schema": { "type": "string" },
+      "example": "search term"
+    },
+    {
+      "name": "filters[author_id]",
+      "in": "query",
+      "description": "Filter by author id using exact match",
+      "required": false,
+      "schema": { "type": "integer" },
+      "example": 1
+    }
+  ]
+}
+```
 
 ## API Key Protection
 

@@ -151,9 +151,9 @@ module ApiPlayground
     #
     # @api private
     def generate_list_operation(model_name, config)
-      {
+      operation = {
         summary: "List #{model_name.pluralize.humanize}",
-        description: "Retrieve a paginated list of #{model_name.pluralize.humanize.downcase}",
+        description: generate_list_description(model_name, config),
         tags: [model_name.humanize],
         responses: {
           '200' => { description: 'Successful response' },
@@ -161,6 +161,12 @@ module ApiPlayground
           '404' => { description: 'Not found' }
         }
       }
+
+      # Add parameters for pagination and filters
+      parameters = generate_list_parameters(config)
+      operation[:parameters] = parameters if parameters.any?
+
+      operation
     end
 
     # Generates the show/detail operation specification
@@ -259,6 +265,156 @@ module ApiPlayground
           '404' => { description: 'Not found' }
         }
       }
+    end
+
+    # Generates dynamic description for list operation including filter information
+    #
+    # @param model_name [String] Name of the model
+    # @param config [Hash] Configuration for the model
+    # @return [String] Description text
+    #
+    # @api private
+    def generate_list_description(model_name, config)
+      base_description = "Retrieve a list of #{model_name.pluralize.humanize.downcase}"
+      
+      features = []
+      features << "pagination" if config.dig(:pagination, :enabled)
+      features << "filtering" if config[:filters]&.any?
+      
+      if features.any?
+        base_description += " with #{features.join(' and ')}"
+      end
+      
+      if config[:filters]&.any?
+        filter_fields = config[:filters].map { |f| f[:field] }.join(', ')
+        base_description += ". Available filters: #{filter_fields}"
+      end
+      
+      base_description
+    end
+
+    # Generates parameters for list operations (pagination and filters)
+    #
+    # @param config [Hash] Configuration for the model
+    # @return [Array<Hash>] Array of parameter specifications
+    #
+    # @api private
+    def generate_list_parameters(config)
+      parameters = []
+
+      # Pagination parameters
+      if config.dig(:pagination, :enabled)
+        page_size = config.dig(:pagination, :page_size) || 15
+        
+        parameters << {
+          name: 'page[number]',
+          in: 'query',
+          description: 'Page number for pagination (starts from 1)',
+          required: false,
+          schema: { 
+            type: 'integer', 
+            minimum: 1, 
+            default: 1,
+            example: 1
+          }
+        }
+        
+        parameters << {
+          name: 'page[size]',
+          in: 'query',
+          description: "Number of items per page (maximum: 50)",
+          required: false,
+          schema: { 
+            type: 'integer', 
+            minimum: 1, 
+            maximum: 50, 
+            default: page_size,
+            example: page_size
+          }
+        }
+      end
+
+      # Filter parameters
+      config[:filters]&.each do |filter|
+        filter_type_description = case filter[:type]
+                                 when :exact
+                                   "exact match"
+                                 when :partial
+                                   "partial match (case-insensitive search)"
+                                 else
+                                   "filter"
+                                 end
+
+        field_name = filter[:field]
+        humanized_field = field_name.humanize.downcase
+
+        parameters << {
+          name: "filters[#{field_name}]",
+          in: 'query',
+          description: "Filter by #{humanized_field} using #{filter_type_description}",
+          required: false,
+          schema: generate_filter_schema(filter),
+          example: generate_filter_example(filter)
+        }
+      end
+
+      parameters
+    end
+
+    # Generates schema for a filter parameter based on field name and type
+    #
+    # @param filter [Hash] Filter configuration
+    # @return [Hash] Schema definition
+    #
+    # @api private
+    def generate_filter_schema(filter)
+      field_name = filter[:field].to_s
+      
+      # Infer schema type based on field name patterns
+      case field_name
+      when /_id$/, 'id'
+        { type: 'integer', description: 'Numeric identifier' }
+      when /_at$/, /_on$/, /^created/, /^updated/, 'timestamp'
+        { type: 'string', format: 'date-time', description: 'ISO8601 timestamp' }
+      when 'email'
+        { type: 'string', format: 'email', description: 'Email address' }
+      when /_count$/, 'count', 'quantity', 'number'
+        { type: 'integer', description: 'Numeric value' }
+      when /^is_/, /^has_/, 'active', 'enabled', 'published'
+        { type: 'boolean', description: 'Boolean value' }
+      else
+        { type: 'string', description: 'Text value' }
+      end
+    end
+
+    # Generates example value for a filter parameter
+    #
+    # @param filter [Hash] Filter configuration
+    # @return [String, Integer, Boolean] Example value
+    #
+    # @api private
+    def generate_filter_example(filter)
+      field_name = filter[:field].to_s
+      filter_type = filter[:type]
+      
+      case field_name
+      when /_id$/, 'id'
+        1
+      when 'title'
+        filter_type == :partial ? 'Recipe' : 'Spaghetti Carbonara'
+      when 'name'
+        filter_type == :partial ? 'John' : 'John Doe'
+      when 'email'
+        'user@example.com'
+      when 'status'
+        'published'
+      when /^is_/, /^has_/, 'active', 'enabled', 'published'
+        true
+      when /_count$/, 'count', 'quantity'
+        10
+      else
+        filter_type == :partial ? 'search term' : 'exact value'
+      end
     end
 
     # Generates the OpenAPI components section
