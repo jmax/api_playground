@@ -263,6 +263,142 @@ RSpec.describe 'ApiPlayground::Documentation', type: :request do
       expect(parameter_names).to include('page[size]')
       expect(parameter_names).not_to include('filters[name]') # No filters configured for users
     end
+
+    it "includes request body schema for create operations" do
+      get "/api/test_playground/docs"
+      
+      json = JSON.parse(response.body)
+      create_operation = json.dig('paths', '/api/test_playground/recipes', 'post')
+      
+      expect(create_operation).to include('requestBody')
+      request_body = create_operation['requestBody']
+      
+      expect(request_body).to include('required' => true)
+      expect(request_body).to include('content')
+      
+      json_content = request_body.dig('content', 'application/json')
+      expect(json_content).to include('schema', 'example')
+      
+      # Check schema structure
+      schema = json_content['schema']
+      expect(schema).to include('type' => 'object')
+      expect(schema['properties']).to include('data')
+      
+      data_schema = schema.dig('properties', 'data')
+      expect(data_schema['properties']).to include('type', 'attributes')
+      
+      # Check attributes schema
+      attributes_schema = data_schema.dig('properties', 'attributes')
+      expect(attributes_schema).to include('properties')
+      expect(attributes_schema['properties']).to include('title', 'body')
+      
+      # Check example structure
+      example = json_content['example']
+      expect(example).to include('data')
+      expect(example['data']).to include('type' => 'recipes')
+      expect(example['data']).to include('attributes')
+      expect(example['data']['attributes']).to include('title', 'body')
+    end
+
+    it "includes request body schema for update operations" do
+      get "/api/test_playground/docs"
+      
+      json = JSON.parse(response.body)
+      update_operation = json.dig('paths', '/api/test_playground/recipes/{id}', 'patch')
+      
+      expect(update_operation).to include('requestBody')
+      request_body = update_operation['requestBody']
+      
+      expect(request_body).to include('required' => true)
+      json_content = request_body.dig('content', 'application/json')
+      
+      # Check example structure
+      example = json_content['example']
+      expect(example['data']['attributes']).to include('title', 'body')
+    end
+
+    it "generates appropriate example values for different field types" do
+      # Add a more complex configuration
+      allow(Api::TestPlaygroundController).to receive(:playground_configurations).and_return({
+        'user' => {
+          attributes: { ungrouped: [:name, :email, :age, :is_active, :created_at, :profile_url, :bio] },
+          requests: {
+            create: { fields: [:name, :email, :age, :is_active, :profile_url, :bio] }
+          }
+        }
+      })
+      
+      get "/api/test_playground/docs"
+      
+      json = JSON.parse(response.body)
+      create_operation = json.dig('paths', '/api/test_playground/users', 'post')
+      example = create_operation.dig('requestBody', 'content', 'application/json', 'example')
+      
+      attributes = example.dig('data', 'attributes')
+      expect(attributes['name']).to be_a(String)
+      expect(attributes['email']).to match(/@/)
+      expect(attributes['age']).to be_a(Integer) if attributes.key?('age')
+      expect(attributes['is_active']).to be_in([true, false])
+      expect(attributes['profile_url']).to include('http')
+      expect(attributes['bio']).to be_a(String)
+    end
+
+    it "generates intelligent schema types for different fields" do
+      # Configure controller with varied field types
+      allow(Api::TestPlaygroundController).to receive(:playground_configurations).and_return({
+        'product' => {
+          attributes: { ungrouped: [:name, :price, :category_id, :is_featured, :created_at, :website_url] },
+          requests: {
+            create: { fields: [:name, :price, :category_id, :is_featured, :website_url] }
+          }
+        }
+      })
+      
+      get "/api/test_playground/docs"
+      
+      json = JSON.parse(response.body)
+      create_operation = json.dig('paths', '/api/test_playground/products', 'post')
+      attributes_schema = create_operation.dig('requestBody', 'content', 'application/json', 'schema', 'properties', 'data', 'properties', 'attributes', 'properties')
+      
+      expect(attributes_schema['name']['type']).to eq('string')
+      expect(attributes_schema['price']['type']).to eq('number')
+      expect(attributes_schema['price']['format']).to eq('float')
+      expect(attributes_schema['category_id']['type']).to eq('integer')
+      expect(attributes_schema['is_featured']['type']).to eq('boolean')
+      expect(attributes_schema['website_url']['type']).to eq('string')
+      expect(attributes_schema['website_url']['format']).to eq('uri')
+    end
+
+    it "marks certain fields as required in request body" do
+      get "/api/test_playground/docs"
+      
+      json = JSON.parse(response.body)
+      create_operation = json.dig('paths', '/api/test_playground/recipes', 'post')
+      attributes_schema = create_operation.dig('requestBody', 'content', 'application/json', 'schema', 'properties', 'data', 'properties', 'attributes')
+      
+      # Title should be marked as required since it matches the pattern
+      expect(attributes_schema['required']).to include('title')
+    end
+
+    it "handles empty request fields gracefully" do
+      # Configure controller with no create fields
+      allow(Api::TestPlaygroundController).to receive(:playground_configurations).and_return({
+        'readonly_model' => {
+          attributes: { ungrouped: [:name, :description] },
+          requests: {
+            create: { fields: [] }
+          }
+        }
+      })
+      
+      get "/api/test_playground/docs"
+      
+      json = JSON.parse(response.body)
+      create_operation = json.dig('paths', '/api/test_playground/readonly_models', 'post')
+      
+      # Should have basic required true but no detailed schema
+      expect(create_operation['requestBody']).to eq({ 'required' => true })
+    end
   end
 
   describe 'error handling' do

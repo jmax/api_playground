@@ -206,7 +206,7 @@ module ApiPlayground
         summary: "Create #{model_name.humanize}",
         description: "Create a new #{model_name.humanize.downcase}",
         tags: [model_name.humanize],
-        requestBody: { required: true },
+        requestBody: generate_request_body(model_name, config, :create),
         responses: {
           '201' => { description: 'Created successfully' },
           '400' => { description: 'Bad request' },
@@ -232,7 +232,7 @@ module ApiPlayground
           description: "ID of the #{model_name.humanize.downcase}",
           schema: { type: 'integer' }
         }],
-        requestBody: { required: true },
+        requestBody: generate_request_body(model_name, config, :update),
         responses: {
           '200' => { description: 'Updated successfully' },
           '400' => { description: 'Bad request' },
@@ -265,6 +265,228 @@ module ApiPlayground
           '404' => { description: 'Not found' }
         }
       }
+    end
+
+    # Generates request body specification for create/update operations
+    #
+    # @param model_name [String] Name of the model
+    # @param config [Hash] Configuration for the model
+    # @param operation [Symbol] The operation type (:create or :update)
+    # @return [Hash] Request body specification
+    #
+    # @api private
+    def generate_request_body(model_name, config, operation)
+      allowed_fields = config.dig(:requests, operation, :fields) || []
+      
+      return { required: true } if allowed_fields.empty?
+
+      {
+        required: true,
+        content: {
+          'application/json' => {
+            schema: {
+              type: 'object',
+              required: ['data'],
+              properties: {
+                data: {
+                  type: 'object',
+                  required: ['type', 'attributes'],
+                  properties: {
+                    type: { 
+                      type: 'string', 
+                      enum: [model_name.pluralize],
+                      example: model_name.pluralize
+                    },
+                    attributes: {
+                      type: 'object',
+                      properties: generate_request_attributes_schema(allowed_fields),
+                      required: extract_required_fields(allowed_fields)
+                    }
+                  }
+                }
+              }
+            },
+            example: generate_request_example(model_name, allowed_fields)
+          }
+        }
+      }
+    end
+
+    # Generates schema for request attributes
+    #
+    # @param allowed_fields [Array] List of allowed field names
+    # @return [Hash] Attributes schema
+    #
+    # @api private
+    def generate_request_attributes_schema(allowed_fields)
+      properties = {}
+      
+      allowed_fields.each do |field|
+        properties[field] = generate_attribute_schema(field)
+      end
+
+      properties
+    end
+
+    # Generates example request body for create/update operations
+    #
+    # @param model_name [String] Name of the model
+    # @param allowed_fields [Array] List of allowed field names
+    # @return [Hash] Complete example request body
+    #
+    # @api private
+    def generate_request_example(model_name, allowed_fields)
+      attributes_example = {}
+      
+      allowed_fields.each do |field|
+        attributes_example[field] = generate_attribute_example_value(field)
+      end
+
+      {
+        data: {
+          type: model_name.pluralize,
+          attributes: attributes_example
+        }
+      }
+    end
+
+    # Generates schema for a single attribute based on field name
+    #
+    # @param field_name [Symbol, String] Field name
+    # @return [Hash] Schema definition
+    #
+    # @api private
+    def generate_attribute_schema(field_name)
+      field_str = field_name.to_s
+      
+      case field_str
+      when /_id$/, 'id'
+        { type: 'integer', description: 'Numeric identifier', example: generate_attribute_example_value(field_name) }
+      when /_at$/, /_on$/, /^created/, /^updated/, 'timestamp'
+        { type: 'string', format: 'date-time', description: 'ISO8601 timestamp', example: generate_attribute_example_value(field_name) }
+      when 'email'
+        { type: 'string', format: 'email', description: 'Email address', example: generate_attribute_example_value(field_name) }
+      when /_count$/, 'count', 'quantity', 'number', 'age'
+        { type: 'integer', description: 'Numeric value', example: generate_attribute_example_value(field_name) }
+      when /^is_/, /^has_/, 'active', 'enabled', 'published'
+        { type: 'boolean', description: 'Boolean flag', example: generate_attribute_example_value(field_name) }
+      when 'price', 'cost', 'amount', /_price$/, /_cost$/
+        { type: 'number', format: 'float', description: 'Monetary value', example: generate_attribute_example_value(field_name) }
+      when 'url', 'website', /_url$/
+        { type: 'string', format: 'uri', description: 'URL', example: generate_attribute_example_value(field_name) }
+      when 'description', 'summary', 'bio', 'about', 'content'
+        { type: 'string', description: 'Long text content', example: generate_attribute_example_value(field_name) }
+      else
+        { type: 'string', description: field_str.humanize, example: generate_attribute_example_value(field_name) }
+      end
+    end
+
+    # Generates realistic example values for attributes
+    #
+    # @param field_name [Symbol, String] Field name
+    # @return [String, Integer, Boolean, Float] Example value
+    #
+    # @api private
+    def generate_attribute_example_value(field_name)
+      field_str = field_name.to_s
+      
+      case field_str
+      when /_id$/, 'id'
+        case field_str
+        when 'author_id', 'user_id'
+          1
+        when 'category_id'
+          2
+        when 'book_id'
+          3
+        else
+          1
+        end
+      when /_at$/, /_on$/, /^created/, /^updated/, 'timestamp'
+        Time.current.iso8601
+      when 'email'
+        'user@example.com'
+      when /_count$/, 'count', 'quantity'
+        10
+      when 'number', 'age'
+        case field_str
+        when 'age'
+          25
+        when 'number'
+          42
+        else
+          10
+        end
+      when /^is_/, /^has_/, 'active', 'enabled', 'published'
+        true
+      when 'price', 'cost', 'amount'
+        29.99
+      when /_price$/, /_cost$/
+        case field_str
+        when 'unit_price'
+          9.99
+        when 'total_cost'
+          99.99
+        else
+          19.99
+        end
+      when 'url', 'website'
+        'https://example.com'
+      when /_url$/
+        case field_str
+        when 'image_url'
+          'https://example.com/image.jpg'
+        when 'profile_url'
+          'https://example.com/profile'
+        else
+          'https://example.com'
+        end
+      when 'title'
+        'Sample Title'
+      when 'name'
+        'Sample Name'
+      when 'first_name'
+        'John'
+      when 'last_name'
+        'Doe'
+      when 'description'
+        'This is a detailed description that provides comprehensive information about the item.'
+      when 'summary'
+        'A brief summary of the content.'
+      when 'body'
+        'This is the main content body with detailed information.'
+      when 'bio', 'about'
+        'A brief biography or about section.'
+      when 'content'
+        'Main content goes here with detailed information.'
+      when 'tags'
+        'tag1, tag2, tag3'
+      when 'status'
+        'active'
+      when 'type'
+        'standard'
+      when 'category'
+        'general'
+      else
+        case field_str.length
+        when 1..10
+          "Sample #{field_str.humanize}"
+        else
+          "Sample #{field_str.humanize.downcase} content"
+        end
+      end
+    end
+
+    # Extracts required fields from the allowed fields list
+    # Heuristic: fields like 'title', 'name', 'email' are typically required
+    #
+    # @param fields [Array] List of allowed fields
+    # @return [Array] List of required fields
+    #
+    # @api private
+    def extract_required_fields(fields)
+      required_patterns = %w[title name email]
+      fields.select { |field| required_patterns.any? { |pattern| field.to_s.include?(pattern) } }.map(&:to_s)
     end
 
     # Generates dynamic description for list operation including filter information
