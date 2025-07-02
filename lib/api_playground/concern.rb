@@ -249,6 +249,15 @@ module ApiPlayground
     #   GET /api/playground/recipes/1
     def discover
       model_name = params[:model_name].to_s.singularize
+      
+      # Special case: if someone accesses 'docs' without including Documentation module
+      if model_name == 'doc' && !respond_to?(:docs)
+        return render json: {
+          error: 'Documentation not available',
+          message: 'To enable API documentation, include ApiPlayground::Documentation in your controller'
+        }, status: :not_found
+      end
+      
       config = self.class.playground_configurations[model_name]
 
       return model_not_found unless config

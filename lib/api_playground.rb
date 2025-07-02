@@ -18,4 +18,9 @@ module ApiPlayground
       yield(configuration)
     end
   end
+end
+
+# Ensure the routing mapper is included when Rails is available
+if defined?(Rails) && defined?(ActionDispatch::Routing::Mapper)
+  ActionDispatch::Routing::Mapper.include(ApiPlayground::RoutingMapper)
 end 

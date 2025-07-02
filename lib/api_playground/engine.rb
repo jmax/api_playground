@@ -8,10 +8,8 @@ module ApiPlayground
       end
     end
 
-    initializer "api_playground.routing_mapper" do
-      ActiveSupport.on_load(:action_controller) do
-        ActionDispatch::Routing::Mapper.include(ApiPlayground::RoutingMapper)
-      end
+    initializer "api_playground.routing_mapper", before: :set_routes_reloader do
+      ActionDispatch::Routing::Mapper.include(ApiPlayground::RoutingMapper)
     end
 
     initializer "api_playground.table_name_prefix" do
