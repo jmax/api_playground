@@ -67,11 +67,14 @@ end
 ```
 
 This macro automatically creates all the necessary routes:
+- `GET /api/playground/docs` → `playground#docs` (OpenAPI Documentation)
 - `GET /api/playground/:model_name` → `playground#discover` (Index/List)
 - `GET /api/playground/:model_name/:id` → `playground#discover` (Show)
 - `POST /api/playground/:model_name` → `playground#create` (Create)
 - `PATCH /api/playground/:model_name/:id` → `playground#update` (Update)
 - `DELETE /api/playground/:model_name/:id` → `playground#destroy` (Delete)
+
+**Note:** The `/docs` endpoint is only available if you include `ApiPlayground::Documentation` in your controller.
 
 #### Custom Route Configuration
 
@@ -99,6 +102,7 @@ If you prefer to define routes manually or need custom routing:
 Rails.application.routes.draw do
   namespace :api do
     scope :playground do
+      get 'docs', to: 'playground#docs'                     # Documentation
       get ':model_name', to: 'playground#discover'           # Index/List
       get ':model_name/:id', to: 'playground#discover'      # Show
       post ':model_name', to: 'playground#create'           # Create
@@ -369,6 +373,131 @@ module Api
   end
 end
 ```
+
+## API Documentation
+
+API Playground includes built-in OpenAPI v3 documentation generation. When you include the `ApiPlayground::Documentation` module in your controller, it automatically generates comprehensive API documentation based on your playground configurations.
+
+### Basic Setup
+
+Include the documentation module in your playground controller:
+
+```ruby
+# app/controllers/api/playground_controller.rb
+module Api
+  class PlaygroundController < ApplicationController
+    include ApiPlayground
+    include ApiPlayground::Documentation
+
+    playground_for :recipe,
+                  attributes: [:title, :body, :description],
+                  requests: {
+                    create: { fields: [:title, :body] },
+                    update: { fields: [:title, :body] },
+                    delete: true
+                  }
+  end
+end
+```
+
+### Accessing Documentation
+
+The documentation will be available at the `/docs` endpoint:
+
+```bash
+GET /api/playground/docs
+```
+
+This returns a complete OpenAPI v3.0.3 specification in JSON format.
+
+### Generated Documentation Features
+
+The documentation module automatically generates:
+
+- **OpenAPI v3.0.3 compliant specification**
+- **Complete schema definitions** for all configured models
+- **Path definitions** for all available CRUD operations
+- **Request/response examples** with proper JSON:API structure
+- **Error response schemas** for different HTTP status codes
+- **Security definitions** for API key authentication (if enabled)
+- **Parameter definitions** for pagination and filtering
+
+### Example Generated Paths
+
+For a recipe model, the following paths are automatically documented:
+
+- `GET /api/playground/recipes` - List recipes with pagination
+- `GET /api/playground/recipes/{id}` - Get specific recipe
+- `POST /api/playground/recipes` - Create new recipe (if enabled)
+- `PATCH /api/playground/recipes/{id}` - Update recipe (if enabled)
+- `DELETE /api/playground/recipes/{id}` - Delete recipe (if enabled)
+
+### Integration with API Tools
+
+The generated OpenAPI specification can be used with:
+
+- **Swagger UI** - Import the JSON to create interactive documentation
+- **Postman** - Import as a collection for testing
+- **Insomnia** - Import for API testing
+- **OpenAPI Generator** - Generate client libraries
+
+### Example: Swagger UI Integration
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Documentation</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.25.0/swagger-ui.css" />
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com/swagger-ui-dist@3.25.0/swagger-ui-bundle.js"></script>
+    <script>
+        SwaggerUIBundle({
+            url: '/api/playground/docs',
+            dom_id: '#swagger-ui',
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIBundle.presets.standalone
+            ]
+        });
+    </script>
+</body>
+</html>
+```
+
+### Custom Documentation Configuration
+
+The documentation automatically adapts to your playground configuration:
+
+```ruby
+# Complex configuration example
+playground_for :recipe,
+              attributes: [
+                :title, :body,
+                { timestamps: [:created_at, :updated_at] },
+                { metadata: [:views_count, :likes_count] }
+              ],
+              relationships: [:author, :categories],
+              requests: {
+                create: { fields: [:title, :body, :author_id] },
+                update: { fields: [:title, :body] },
+                delete: true
+              },
+              pagination: { enabled: true, page_size: 25 },
+              filters: [
+                { field: 'title', type: :exact },
+                { field: 'body', type: :partial }
+              ]
+```
+
+This configuration will generate:
+- Schemas with grouped attributes (timestamps, metadata)
+- Relationship definitions for author and categories
+- Request schemas limited to specified fields
+- Pagination parameters in the documentation
+- Filter parameters for search operations
 
 ## API Key Protection
 

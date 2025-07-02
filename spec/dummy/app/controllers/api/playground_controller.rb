@@ -1,6 +1,7 @@
 module Api
   class PlaygroundController < ApplicationController
     include ApiPlayground
+    include ApiPlayground::Documentation
 
     playground_for :recipe,
                   attributes: [:title, :body],

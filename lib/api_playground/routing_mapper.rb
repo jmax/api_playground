@@ -23,6 +23,7 @@ module ApiPlayground
 
       namespace namespace do
         scope source do
+          get 'docs', to: "#{source}#docs"
           get ':model_name', to: "#{source}#discover"
           get ':model_name/:id', to: "#{source}#discover"
           post ':model_name', to: "#{source}#create"

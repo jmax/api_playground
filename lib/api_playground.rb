@@ -1,6 +1,7 @@
 require "api_playground/version"
 require "api_playground/routing_mapper"
 require "api_playground/concern"
+require "api_playground/documentation"
 require "api_playground/configuration"
 require "api_playground/api_protection"
 require "api_playground/engine" if defined?(Rails)
